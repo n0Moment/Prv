@@ -16,8 +16,8 @@ plugins {
     signing
 }
 
-version = "1.5.0-pre2"
-group = "com.example"
+version = "0.0-alpha1"
+group = "me.prv"
 
 repositories {
     mavenLocal()
@@ -107,7 +107,7 @@ tasks {
         enabled = false
     }
     named<RemapJarTask>("remapJar") {
-        archiveBaseName.set("ExampleMod")
+        archiveBaseName.set("Prv")
         input.set(shadowJar.get().archiveFile)
         doLast {
             MessageDigest.getInstance("SHA-256").digest(archiveFile.get().asFile.readBytes())
@@ -117,7 +117,7 @@ tasks {
         }
     }
     named<ShadowJar>("shadowJar") {
-        archiveBaseName.set("ExampleMod")
+        archiveBaseName.set("Prv")
         archiveClassifier.set("dev")
         duplicatesStrategy = DuplicatesStrategy.EXCLUDE
         configurations = listOf(shadowMe, shadowMeMod)
